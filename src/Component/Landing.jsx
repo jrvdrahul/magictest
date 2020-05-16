@@ -62,7 +62,7 @@ class Landing extends React.Component {
                 <div className="row">
                   {this.state.jobs.map((data, index) => (
                     <div className="jobList col-md-4">
-                      <Link to={job / id}>
+                      <Link to={`/job/${data.id}`}>
                         <div className="card">
                           <div className="card-body">
                             <div>{data.company}</div>

@@ -26,3 +26,11 @@
 .jobList {
   padding: 50px;
 }
+
+.jobDetails,
+.success {
+  margin-top: 50px;
+}
+.jobDetails .card {
+  padding: 20px;
+}
