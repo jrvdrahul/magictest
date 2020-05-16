@@ -13,14 +13,16 @@
   border-radius: 10px;
 }
 
-#landing {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: -webkit-fill-available;
-}
-
-#landing .card {
+#landing .search {
+  margin: 50px auto;
   width: 500px;
   padding: 20px;
+}
+.noJobs {
+  width: 100%;
+  text-align: center;
+}
+
+.jobList {
+  padding: 50px;
 }
