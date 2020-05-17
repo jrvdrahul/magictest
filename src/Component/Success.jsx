@@ -1,7 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
-import Success from './Success';
 import '../App.css';
 
 class ApplySuccess extends React.Component {
@@ -22,29 +19,31 @@ class ApplySuccess extends React.Component {
           {!this.state.success ? (
             <div className="card">
               <div className="card-body">
-                <div class="form-group">
+                <h3>Please provide these details</h3>
+                <hr></hr>
+                <div className="form-group">
                   <input
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     placeholder="Enter name"
                     onChange={(event) =>
                       this.setState({ name: event.target.value })
                     }
                   />
                 </div>
-                <div class="form-group">
+                <div className="form-group">
                   <input
                     type="email"
-                    class="form-control"
+                    className="form-control"
                     placeholder="Enter email"
                     onChange={(event) =>
                       this.setState({ email: event.target.value })
                     }
                   />
                 </div>
-                <div class="form-group">
+                <div className="form-group">
                   <textarea
-                    class="form-control"
+                    className="form-control"
                     rows="5"
                     id="comment"
                     placeholder="Cover letter note"
@@ -56,7 +55,7 @@ class ApplySuccess extends React.Component {
                 <div className="form-group">
                   <button
                     type="submit"
-                    class="btn btn-primary"
+                    className="btn btn-primary"
                     onClick={this.submit}
                   >
                     Submit
@@ -70,7 +69,7 @@ class ApplySuccess extends React.Component {
                 <h2>You Have Successfully Applied for the job </h2>
                 <div>Here are the details</div>
                 <hr></hr>
-                <div class="row">
+                <div className="row">
                   <div className="col-md-6">
                     <div>Name: {name}</div>
                     <div>Email: {email}</div>

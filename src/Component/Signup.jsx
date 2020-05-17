@@ -6,7 +6,7 @@ class Signup extends React.Component {
   state = { login: false };
 
   submit = () => {
-    if (this.state.password == this.state.confirmPassword) {
+    if (this.state.password === this.state.confirmPassword) {
       localStorage.setItem('userEmail', this.state.email);
       this.setState({
         login: true,
@@ -22,28 +22,28 @@ class Signup extends React.Component {
     }
     return (
       <div className="login">
-        <div class="form-group">
+        <div className="form-group">
           <input
             type="email"
-            class="form-control"
+            className="form-control"
             placeholder="Enter email"
             onChange={(event) => this.setState({ email: event.target.value })}
           />
         </div>
-        <div class="form-group">
+        <div className="form-group">
           <input
             type="password"
-            class="form-control"
+            className="form-control"
             placeholder="Enter Password"
             onChange={(event) =>
               this.setState({ password: event.target.value })
             }
           />
         </div>
-        <div class="form-group">
+        <div className="form-group">
           <input
             type="password"
-            class="form-control"
+            className="form-control"
             placeholder="Confirm Password"
             onChange={(event) =>
               this.setState({ confirmPassword: event.target.value })
@@ -53,7 +53,7 @@ class Signup extends React.Component {
         <div className="form-group">
           <button
             type="submit"
-            class="btn btn-primary"
+            className="btn btn-primary"
             disabled={
               !this.state.email ||
               !this.state.password ||

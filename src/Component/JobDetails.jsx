@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Success from './Success';
 import '../App.css';
@@ -11,15 +10,12 @@ class Job extends React.Component {
   };
 
   componentDidMount() {
-    console.log(this.props.match.params.id);
-
     var id = this.props.match.params.id;
 
     axios
       .get('https://jobs.github.com/positions/' + id + '.json')
       .then((response) => {
-        console.log(response);
-        if (response.status == 200) {
+        if (response.status === 200) {
           this.setState({
             details: response.data,
           });
@@ -40,6 +36,7 @@ class Job extends React.Component {
     let detail = this.state.details;
     return (
       <>
+        <div className="header">Welcome {this.state.user}</div>
         {!this.state.apply ? (
           <div className="container-fluid jobDetails">
             <div className="card">
@@ -50,7 +47,7 @@ class Job extends React.Component {
                 <div className="col-md-2">
                   <button
                     type="submit"
-                    class="btn btn-primary"
+                    className="btn btn-primary"
                     onClick={this.apply}
                   >
                     Apply

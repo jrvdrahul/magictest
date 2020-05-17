@@ -4,15 +4,14 @@ import axios from 'axios';
 import '../App.css';
 
 class Landing extends React.Component {
-  state = { submit: false, jobs: '' };
+  state = { submit: false, jobs: '', user: localStorage.getItem('userEmail') };
 
   search = () => {
     var data = this.state.lang;
     axios
       .get('https://jobs.github.com/positions.json?description=' + data)
       .then((response) => {
-        console.log(response);
-        if (response.status == 200) {
+        if (response.status === 200) {
           this.setState({
             jobs: response.data,
           });
@@ -26,16 +25,17 @@ class Landing extends React.Component {
   render() {
     return (
       <div className="container-fluid" id="landing">
+        <div className="row header">Welcome {this.state.user}</div>
         <div className="row">
           <div className="card search">
             <div className="card-body">
               <div className="heading">
                 what programming language you’re looking for a job in.
               </div>
-              <div class="form-group">
+              <div className="form-group">
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   placeholder="Enter language"
                   onChange={(event) =>
                     this.setState({ lang: event.target.value })
@@ -45,7 +45,7 @@ class Landing extends React.Component {
               <div className="form-group">
                 <button
                   type="submit"
-                  class="btn btn-primary"
+                  className="btn btn-primary"
                   disabled={!this.state.lang}
                   onClick={this.search}
                 >
@@ -58,10 +58,11 @@ class Landing extends React.Component {
         <div className="row">
           {this.state.jobs ? (
             <div className="card">
+              <div className="text-center">List of jobs </div>
               <div className="card-body">
                 <div className="row">
                   {this.state.jobs.map((data, index) => (
-                    <div className="jobList col-md-4">
+                    <div className="jobList col-md-4" key={index}>
                       <Link to={`/job/${data.id}`}>
                         <div className="card">
                           <div className="card-body">
@@ -77,7 +78,7 @@ class Landing extends React.Component {
             </div>
           ) : (
             <div className="card noJobs">
-              <div class="card-body">No Jobs Available</div>
+              <div className="card-body">No Jobs Available</div>
             </div>
           )}
         </div>
